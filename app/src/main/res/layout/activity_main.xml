@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_bar_layout">
+
+            <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Projects"
+                android:textSize="28sp"
+                android:fontFamily="@font/gotham"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_below="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnArchives"
+                tools:ignore="HardcodedText">
+
+                <TextView
+                    android:id="@+id/txtArchive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="TODO"
+                    android:fontFamily="@font/signika_bold"
+                    android:src="@drawable/ic_archive_foreground"
+                    android:text="Archived"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imgArchive"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.518" />
+
+                <ImageView
+                    android:id="@+id/imgArchive"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_archive_foreground"
+                    android:text="Add Note"
+                    app:layout_constraintEnd_toStartOf="@+id/txtArchive"
+                    app:layout_constraintTop_toTopOf="@+id/btnArchives"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnArchives"
+                    app:layout_constraintStart_toStartOf="@+id/btnArchives"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/hint_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnArchives"
+                android:gravity="center"
+                android:hint="Long press item for more Options..."/>
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/filters_9729882"
+                android:id="@+id/imgFilter"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/title_bar_layout"
+            android:id="@+id/rcNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"
+            tools:ignore="HardcodedText">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:fabSize="normal"
+                android:id="@+id/fabAddNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_add_foreground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_alarm_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:srcCompat="@drawable/project"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toTopOf="@+id/fabAddNote"
+                app:layout_constraintEnd_toEndOf="@+id/fabAddNote"
+                app:layout_constraintStart_toStartOf="@+id/fabAddNote" />
+
+            <TextView
+                android:id="@+id/add_alarm_action_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Add Project"
+                app:layout_constraintBottom_toBottomOf="@+id/add_alarm_fab"
+                app:layout_constraintEnd_toStartOf="@+id/add_alarm_fab"
+                app:layout_constraintTop_toTopOf="@+id/add_alarm_fab" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_person_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toTopOf="@+id/add_alarm_fab"
+                app:layout_constraintEnd_toEndOf="@+id/add_alarm_fab"
+                app:layout_constraintStart_toStartOf="@+id/add_alarm_fab"
+                app:srcCompat="@drawable/task_8089609" />
+
+            <TextView
+                android:id="@+id/add_person_action_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Add Task"
+                app:layout_constraintBottom_toBottomOf="@+id/add_person_fab"
+                app:layout_constraintEnd_toStartOf="@+id/add_person_fab"
+                app:layout_constraintTop_toTopOf="@+id/add_person_fab" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    tools:context=".NoteDetails">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:padding="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_bar_layout">
+
+            <TextView
+                android:id="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="28sp"
+                android:fontFamily="@font/gotham"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_below="@+id/page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pp"
+                tools:ignore="HardcodedText">
+
+                <TextView
+                    android:id="@+id/txtAddTask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="TODO"
+                    android:fontFamily="@font/signika_bold"
+                    android:src="@drawable/ic_archive_foreground"
+                    android:text="Add New Task"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imgAddTask"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.518" />
+
+                <ImageView
+                    android:id="@+id/imgAddTask"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_add_foreground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/pp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pp"
+                    app:layout_constraintStart_toEndOf="@+id/txtAddTask"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:backgroundTint="@color/black"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/btnUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/myCard"
+            android:layout_below="@id/title_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:minHeight="210dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="10dp"
+            app:cardPreventCornerOverlap="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginVertical="26dp"
+                android:backgroundTint="@color/white">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/notes_title_text"
+                    android:hint="Title"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="8dp"
+                    android:padding="12dp"
+                    android:textColor="@color/black"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/notes_content_text"
+                    android:hint="Content"
+                    android:minLines="15"
+                    android:gravity="top"
+                    android:textSize="20sp"
+                    android:layout_marginVertical="8dp"
+                    android:padding="12dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/noteTime"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    android:text=""
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/myCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:id="@+id/tasks"
+            android:textStyle="bold"
+            android:fontFamily="@font/signika_bold"
+            android:text="Tasks"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/rcTasks"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/rcTasks"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:visibility="gone"
+                    android:backgroundTint="@color/black"
+                    android:id="@+id/delete_note_text_view_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="10dp"
+                    android:textColor="#FF0000"
+                    android:text="Delete note" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
+
